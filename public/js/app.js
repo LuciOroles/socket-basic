@@ -1,5 +1,4 @@
-alert("this is it");
-		var socket= io();
-	socket.on('connection',function(){
+var socket= io();
+	socket.on('connect',function(){
 		console.log('connected to socket IO front');
 	});
