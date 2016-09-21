@@ -10,8 +10,11 @@
 
      socket.on('message', function(message) {
          console.log("message rec :" + message.text);
-         socket.broadcast.emit('message', message);
+         //socket.broadcast.emit('message', message); emiting to all but emitter
+           io.emit('message', message); // emit to
 		});
+
+
 	  socket.emit('message', {
          text: 'Welcome to the chat app'
      });
