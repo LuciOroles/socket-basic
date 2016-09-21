@@ -8,7 +8,9 @@ var socket= io();
 	socket.on('message',function (message) {
 		console.log('new message');
 		console.log(message.text);
-		$(".messages").append('<p>' + message.text + '</p>')
+		var momentTimeStamp = moment.utc(message.timestamp);
+
+		$(".messages").append('<p><strong>'+ momentTimeStamp.local().format('h:mm a')  + '</strong>: ' + message.text + '</p>')
 	});
 // handle submiting of new message
 	var $form=$('#message-form');
